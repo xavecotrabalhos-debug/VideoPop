@@ -1,0 +1,24 @@
+VIDEO POP — WEBVIEW CONECTADO AO TERMUX
+
+Este é um projeto Android (código-fonte), não um APK compilado.
+
+COMO FUNCIONA
+- O APK abre uma WebView em http://127.0.0.1:8000.
+- O processamento continua sendo feito pelo servidor Flask + FFmpeg no Termux.
+- A WebView permite selecionar vários vídeos pelo seletor de arquivos Android.
+- O download do vídeo final é encaminhado ao gerenciador de downloads do Android.
+
+REQUISITO
+A versão do servidor no Termux precisa estar instalada e iniciada antes de abrir o app:
+  cd ~/recortador_v2_1
+  python app.py
+
+Mantenha o Termux executando em segundo plano enquanto usa o Video Pop.
+
+COMPILAÇÃO NA NUVEM
+O workflow .github/workflows/build-apk.yml compila o APK de debug pelo GitHub Actions.
+Abra a aba Actions, execute "Build Video Pop APK" com Run workflow e baixe o artifact "Video-Pop-debug-apk".
+O APK de debug serve para instalação e testes; para distribuição pública, configure assinatura de release.
+
+OBSERVAÇÃO
+O aplicativo não inicia o Termux automaticamente. O usuário inicia o servidor no Termux antes de abrir o app.
